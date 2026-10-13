@@ -26,3 +26,28 @@ document.querySelectorAll('.project-image').forEach((img) => {
     if (img.complete && img.naturalWidth === 0) hide();
     img.addEventListener('error', hide);
 });
+
+// Live visitors counter (Supabase Realtime Presence)
+(function () {
+    const box = document.getElementById('online');
+    const countEl = document.getElementById('online-count');
+    if (!box || !window.supabase) return;
+
+    const client = window.supabase.createClient(
+        'https://ТВОЙ-ПРОЕКТ.supabase.co',
+        'ТВОЙ_ANON_KEY'
+    );
+
+    const channel = client.channel('portfolio-online', {
+        config: { presence: { key: crypto.randomUUID() } }
+    });
+
+    channel
+        .on('presence', { event: 'sync' }, () => {
+            countEl.textContent = Object.keys(channel.presenceState()).length;
+            box.hidden = false;
+        })
+        .subscribe(async (status) => {
+            if (status === 'SUBSCRIBED') await channel.track({ at: Date.now() });
+        });
+})();

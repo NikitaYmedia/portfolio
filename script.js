@@ -31,23 +31,39 @@ document.querySelectorAll('.project-image').forEach((img) => {
 (function () {
     const box = document.getElementById('online');
     const countEl = document.getElementById('online-count');
-    if (!box || !window.supabase) return;
+    if (!box) return;
+
+    if (!window.supabase) {
+        console.warn('[online] Supabase library did not load (blocked or offline?)');
+        return;
+    }
 
     const client = window.supabase.createClient(
         'https://tnehsqhrohpcetphnllr.supabase.co',
         'sb_publishable_N9I6bXEbMt1c_VMThqXuAQ_fTsaxX2Q'
     );
 
+    const key = (crypto.randomUUID && crypto.randomUUID()) || String(Math.random()).slice(2);
     const channel = client.channel('portfolio-online', {
-        config: { presence: { key: crypto.randomUUID() } }
+        config: { presence: { key } }
     });
 
+    // Always at least 1: the visitor who is looking at the page right now
+    function render() {
+        const count = Math.max(1, Object.keys(channel.presenceState()).length);
+        countEl.textContent = count;
+        box.hidden = false;
+    }
+
     channel
-        .on('presence', { event: 'sync' }, () => {
-            countEl.textContent = Object.keys(channel.presenceState()).length;
-            box.hidden = false;
-        })
-        .subscribe(async (status) => {
-            if (status === 'SUBSCRIBED') await channel.track({ at: Date.now() });
+        .on('presence', { event: 'sync' }, render)
+        .subscribe(async (status, err) => {
+            if (status === 'SUBSCRIBED') {
+                await channel.track({ at: Date.now() });
+                render();
+            } else {
+                // CHANNEL_ERROR / TIMED_OUT / CLOSED: see the reason in the console
+                console.warn('[online] realtime status:', status, err || '');
+            }
         });
 })();

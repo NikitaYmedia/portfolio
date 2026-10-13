@@ -14,13 +14,18 @@
 <body>
     <header class="header">
         <a class="logo" href="index.html">Nikita Yeltsov</a>
-        <nav class="nav">
+        <p class="online" id="online" hidden><span class="online-dot"></span><span id="online-count">1</span> online</p>
+        <a class="burger" href="#menu" aria-label="Open menu"><span></span></a>
+        <nav class="nav" id="menu" aria-label="Main">
+            <a class="menu-close" href="#close" aria-label="Close menu"></a>
             <a href="index.html#projects">Projects</a>
             <a href="index.html#skills">Skills</a>
+            <a href="index.html#pricing">Pricing</a>
             <a href="index.html#about">About</a>
             <a href="index.html#contact">Contact</a>
             <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme"></button>
         </nav>
+        <a class="menu-backdrop" href="#close" tabindex="-1" aria-hidden="true"></a>
     </header>
 
     <main>
@@ -180,7 +185,6 @@
 
     <footer class="footer">
         <p>&copy; <span id="year"></span> Nikita Yeltsov</p>
-        <p class="online" id="online" hidden><span class="online-dot"></span><span id="online-count">1</span> online</p>
     </footer>
 </body>
 

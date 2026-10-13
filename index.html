@@ -15,13 +15,17 @@
     <header class="header">
         <a class="logo" href="#top">Nikita Yeltsov</a>
         <p class="online" id="online" hidden><span class="online-dot"></span><span id="online-count">1</span> online</p>
-        <nav class="nav">
+        <a class="burger" href="#menu" aria-label="Open menu"><span></span></a>
+        <nav class="nav" id="menu" aria-label="Main">
+            <a class="menu-close" href="#close" aria-label="Close menu"></a>
             <a href="#projects">Projects</a>
             <a href="#skills">Skills</a>
+            <a href="#pricing">Pricing</a>
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
             <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme"></button>
         </nav>
+        <a class="menu-backdrop" href="#close" tabindex="-1" aria-hidden="true"></a>
     </header>
 
     <main id="top">
@@ -129,6 +133,35 @@
                     </ul>
                 </li>
             </ul>
+        </section>
+
+        <section class="section" id="pricing">
+            <div class="pricing">
+                <div class="pricing-main">
+                    <h2>Clear, simple <span>pricing.</span></h2>
+                    <p class="pricing-lead">Flexible hourly work for thoughtful, well-built web experiences.</p>
+                    <div class="price-block">
+                        <p class="price"><span class="price-amount">190</span><span
+                                class="price-currency">DKK</span><span class="price-unit">/ hour</span></p>
+                        <p class="price-note">Approx. &euro;25 / hour</p>
+                    </div>
+                    <hr class="pricing-line">
+                    <p class="pricing-text">Only pay for the time spent on your project.<br>No hidden fees.</p>
+                    <a class="button button-outline" href="#contact">Let's talk about your project
+                    </a>
+                </div>
+                <div class="pricing-side">
+                    <h3>What's included</h3>
+                    <ul class="included">
+                        <li>Frontend development</li>
+                        <li>Responsive layouts</li>
+                        <li>Communication &amp; progress updates</li>
+                        <li>Testing and bug fixes</li>
+                        <li>Deployment support</li>
+                    </ul>
+                    <p class="pricing-foot">Fixed-price projects available on request.</p>
+                </div>
+            </div>
         </section>
 
         <section class="section" id="about">

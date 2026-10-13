@@ -691,3 +691,28 @@ ul {
         transition: none !important;
     }
 }
+
+/* Online counter */
+.online {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
+.online[hidden] {
+    display: none;
+}
+
+.online-dot {
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    background: #22c55e;
+    animation: pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    50% { opacity: 0.35; }
+}

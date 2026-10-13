@@ -34,8 +34,8 @@ document.querySelectorAll('.project-image').forEach((img) => {
     if (!box || !window.supabase) return;
 
     const client = window.supabase.createClient(
-        'https://ТВОЙ-ПРОЕКТ.supabase.co',
-        'ТВОЙ_ANON_KEY'
+        'https://tnehsqhrohpcetphnllr.supabase.co',
+        'sb_publishable_N9I6bXEbMt1c_VMThqXuAQ_fTsaxX2Q'
     );
 
     const channel = client.channel('portfolio-online', {

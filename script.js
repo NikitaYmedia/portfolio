@@ -20,14 +20,12 @@ toggle.addEventListener('click', () => {
 
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// Hide a project image if the file is missing, so the empty frame stays clean
 document.querySelectorAll('.project-image').forEach((img) => {
     const hide = () => img.remove();
     if (img.complete && img.naturalWidth === 0) hide();
     img.addEventListener('error', hide);
 });
 
-// Live visitors counter (Supabase Realtime Presence)
 (function () {
     const box = document.getElementById('online');
     const countEl = document.getElementById('online-count');
@@ -48,7 +46,6 @@ document.querySelectorAll('.project-image').forEach((img) => {
         config: { presence: { key } }
     });
 
-    // Always at least 1: the visitor who is looking at the page right now
     function render() {
         const count = Math.max(1, Object.keys(channel.presenceState()).length);
         countEl.textContent = count;
@@ -62,7 +59,6 @@ document.querySelectorAll('.project-image').forEach((img) => {
                 await channel.track({ at: Date.now() });
                 render();
             } else {
-                // CHANNEL_ERROR / TIMED_OUT / CLOSED: see the reason in the console
                 console.warn('[online] realtime status:', status, err || '');
             }
         });

@@ -682,3 +682,27 @@ a {
     text-decoration: none;
     transform: translateY(-2px);
 }
+
+html::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: var(--blue);
+    pointer-events: none;
+    clip-path: circle(0 at var(--tx, 50%) var(--ty, 50%))
+}
+
+html.pt-leave::after {
+    clip-path: circle(150vmax at var(--tx) var(--ty));
+    transition: clip-path .6s cubic-bezier(.77, 0, .18, 1)
+}
+
+html.pt-arrive::after {
+    clip-path: circle(150vmax at var(--tx) var(--ty))
+}
+
+html.pt-arrive.pt-reveal::after {
+    clip-path: circle(0 at var(--tx) var(--ty));
+    transition: clip-path .6s cubic-bezier(.77, 0, .18, 1)
+}

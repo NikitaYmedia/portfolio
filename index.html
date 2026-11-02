@@ -4,159 +4,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Nikita Yeltsov – Frontend Developer</title>
-    <meta name="description" content="Portfolio of Nikita Yeltsov, a frontend developer.">
+    <title>Nikita Yeltsov — Frontend Developer</title>
+    <meta name="description" content="Portfolio of Nikita Yeltsov, frontend developer.">
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.0/dist/umd/supabase.min.js" defer></script>
     <script src="script.js" defer></script>
 </head>
 
 <body>
     <header class="header">
-        <a class="logo" href="#top">Nikita Yeltsov</a>
-        <p class="online" id="online" hidden><span class="online-dot"></span><span id="online-count">1</span> online</p>
-        <a class="burger" href="#menu" aria-label="Open menu"><span></span></a>
-        <nav class="nav" id="menu" aria-label="Main">
-            <a class="menu-close" href="#close" aria-label="Close menu"></a>
-            <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-            <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme"></button>
+        <nav class="nav" aria-label="Main navigation">
+            <a href="#resume">Resume</a><a href="#projects">Portfolio</a><a href="#contact">Contacts</a>
         </nav>
-        <a class="menu-backdrop" href="#close" tabindex="-1" aria-hidden="true"></a>
     </header>
-
     <main id="top">
         <section class="hero">
-            <h1>I build fast, clean interfaces for the web.</h1>
-            <p>Frontend developer focused on HTML, CSS, Next.js, TypeScript, React, JavaScript. Currently open to new
-                projects.</p>
-            <a class="button" href="#contact">Get in touch</a>
+            <div class="avatar"><img src="img/image.png" alt="Nikita Yeltsov" onerror="this.remove()"><span
+                    aria-hidden="true">NY</span></div>
+            <h1>Nikita Yeltsov</h1>
+            <p>Frontend Developer</p>
         </section>
-
-        <section class="section" id="projects">
-            <h2>Projects</h2>
-            <ul class="projects">
-                <li class="project">
-                    <div class="project-media">
-                        <img class="project-image" src="img/TIDE.png" alt="Screenshot of Project One">
-                    </div>
-                    <div class="project-body">
-                        <h3>TIDE</h3>
-                        <p>A site created as a practice project, focusing on visuals and working with frameworks and
-                            libraries.</p>
-                        <ul class="tags">
-                            <li>Next.js</li>
-                            <li>React</li>
-                            <li>TypeScript</li>
-                            <li>Framer Motion</li>
-                            <li>CSS</li>
-                            <li>Vercel</li>
+        <div class="content">
+            <section class="section" id="resume">
+                <h2>Resume</h2>
+                <div class="resume-grid">
+                    <div class="resume-avatar"><img src="img/image.png" alt="Nikita Yeltsov"
+                            onerror="this.remove()"><span aria-hidden="true">NY</span></div>
+                    <div class="resume-copy">
+                        <h3>Nikita Yeltsov</h3>
+                        <p class="lead">Frontend developer focused on building thoughtful, responsive web experiences.
+                        </p>
+                        <h4>Professional skills</h4>
+                        <ul>
+                            <li>HTML, CSS and JavaScript</li>
+                            <li>React, Next.js and TypeScript</li>
+                            <li>Responsive design and accessibility</li>
+                            <li>REST API integration and clean, maintainable code</li>
                         </ul>
-                        <div class="project-links">
-                            <a href="https://tide-topaz-three.vercel.app" target="_blank"
-                                rel="noopener noreferrer">Live</a>
-                            <a href="https://github.com/NikitaYmedia/tide" target="_blank"
-                                rel="noopener noreferrer">GitHub</a>
+                        <h4>Tools and technologies</h4>
+                        <p>Git, GitHub, Vercel, Supabase, PostgreSQL, Figma and VS Code.</p>
+                        <a class="button button-cv" href="cv/Nikita Yeltsov  CV.pdf" download="Nikita-Yeltsov-CV.pdf">
+                            </svg>Download CV</a>
+                    </div>
+                </div>
+            </section>
+            <section class="section" id="projects">
+                <h2>My projects</h2>
+                <ul class="projects">
+                    <li class="project">
+                        <div class="project-media"><img class="project-image" src="img/TIDE.png"
+                                alt="TIDE project preview"></div>
+                        <div class="project-body">
+                            <h3>TIDE</h3>
+                            <p>A concept landing page built to practice visual storytelling. The challenge was making a
+                                calm, minimal design feel alive without hurting performance, so I used Framer Motion for
+                                subtle animations within a Next.js and TypeScript setup.</p>
+                            <ul class="tags">
+                                <li>Next.js</li>
+                                <li>React</li>
+                                <li>TypeScript</li>
+                                <li>Framer Motion</li>
+                            </ul>
+                            <div class="project-links"><a href="https://tide-topaz-three.vercel.app" target="_blank"
+                                    rel="noopener noreferrer">Live preview</a><a
+                                    href="https://github.com/NikitaYmedia/tide" target="_blank"
+                                    rel="noopener noreferrer">GitHub</a></div>
                         </div>
-                    </div>
-                </li>
-                <li class="project">
-                    <div class="project-media">
-                        <img class="project-image" src="img/pro10.png" alt="Screenshot of Project Two">
-                    </div>
-                    <div class="project-body">
-                        <h3>User Authentication App</h3>
-                        <p>A full-stack web application with user registration and login.</p>
-                        <ul class="tags">
+                    </li>
+                    <li class="project">
+                        <div class="project-media"><img class="project-image" src="img/pro10.png"
+                                alt="User Authentication App preview"></div>
+                        <div class="project-body">
+                            <h3>User Authentication App</h3>
+                            <p>A full-stack app where users can register and log in. The main task was handling
+                                credentials safely: passwords are hashed with bcrypt, sessions are managed with
+                                express-session, and user data is stored in PostgreSQL (Neon).</p>
+                            <ul class="tags">
+                                <li>Node.js</li>
+                                <li>Express</li>
+                                <li>PostgreSQL</li>
+                                <li>CSS</li>
+                            </ul>
+                            <div class="project-links"><a href="https://github.com/NikitaYmedia/user-auth-app"
+                                    target="_blank" rel="noopener noreferrer">GitHub</a></div>
+                        </div>
+                    </li>
+                    <li class="project">
+                        <div class="project-media"><img class="project-image" src="img/pro9.png"
+                                alt="RECEIPT project preview"></div>
+                        <div class="project-body">
+                            <h3>RECEIPT</h3>
+                            <p>People lose receipts and warranties exactly when they need them. I built a mobile-first
+                                PWA that keeps purchases, receipts, warranties and manuals in one place, and the home
+                                screen shows the total value of everything you own. Built with React, TypeScript and
+                                Supabase.</p>
+                            <ul class="tags">
+                                <li>React</li>
+                                <li>TypeScript</li>
+                                <li>Supabase</li>
+                                <li>PostgreSQL</li>
+                            </ul>
+                            <div class="project-links"><a href="https://receipt-beta-nine.vercel.app/" target="_blank"
+                                    rel="noopener noreferrer">Live preview</a><a
+                                    href="https://github.com/NikitaYmedia/receipt" target="_blank"
+                                    rel="noopener noreferrer">GitHub</a></div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="projects-more"><a class="button" href="projects.html">View all projects</a></div>
+            </section>
+            <section class="section" id="skills">
+                <h2>Skills</h2>
+                <ul class="skill-groups">
+                    <li class="skill-group">
+                        <h3>Development</h3>
+                        <ul class="chips">
                             <li>HTML</li>
-                            <li>Node.js</li>
-                            <li>Express.js</li>
-                            <li>PostgreSQL</li>
-                            <li>bcrypt</li>
-                            <li>express-session</li>
-                            <li>Neon</li>
                             <li>CSS</li>
-                            <li>Vercel</li>
+                            <li>JavaScript</li>
+                            <li>TypeScript</li>
+                            <li>React</li>
+                            <li>Next.js</li>
+                        </ul>
+                    </li>
+                    <li class="skill-group">
+                        <h3>Tools</h3>
+                        <ul class="chips">
                             <li>Git</li>
                             <li>GitHub</li>
+                            <li>Vercel</li>
+                            <li>Supabase</li>
+                            <li>PostgreSQL</li>
+                            <li>Figma</li>
+                            <li>VS Code</li>
                         </ul>
-                        <div class="project-links">
-                            <a href="https://github.com/NikitaYmedia/user-auth-app" target="_blank"
-                                rel="noopener noreferrer">Live</a>
-                            <a href="https://github.com/NikitaYmedia/user-auth-app" target="_blank"
-                                rel="noopener noreferrer">GitHub</a>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            <div class="projects-more">
-                <a class="button" href="projects.html">View all projects</a>
-            </div>
-        </section>
-
-        <section class="section" id="skills">
-            <h2>Skills</h2>
-            <ul class="skill-groups">
-                <li class="skill-group">
-                    <h3>Languages</h3>
-                    <ul class="chips">
-                        <li>Next.js</li>
-                        <li>React</li>
-                        <li>TypeScript</li>
-                        <li>Framer Motion</li>
-                        <li>WordPress</li>
-                        <li>HTML</li>
-                        <li>CSS</li>
-                        <li>JavaScript</li>
-                    </ul>
-                </li>
-                <li class="skill-group">
-                    <h3>Tools</h3>
-                    <ul class="chips">
-                        <li>Git</li>
-                        <li>GitHub</li>
-                        <li>Vercel</li>
-                        <li>Neon</li>
-                        <li>Simply</li>
-                        <li>Netlify</li>
-                        <li>VS Code</li>
-                        <li>Figma</li>
-                    </ul>
-                </li>
-                <li class="skill-group">
-                    <h3>Practices</h3>
-                    <ul class="chips">
-                        <li>Responsive design</li>
-                        <li>Accessibility</li>
-                        <li>Clean code</li>
-                        <li>REST API</li>
-                    </ul>
-                </li>
-            </ul>
-        </section>
-
-        <section class="section" id="about">
-            <h2>About</h2>
-            <p>I'm a frontend developer focused on building thoughtful digital experiences — from responsive interfaces
-                and interactive features to clean architecture and seamless API integration. I care about writing
-                simple, maintainable code and creating products that feel fast, intuitive and reliable.</p>
-        </section>
-
-        <section class="section" id="contact">
-            <h2>Contact</h2>
-            <p>Have a project or a question? Write to me.</p>
-            <ul class="links">
-                <li><a href="mailto:nikitaelcov899@gmail.com">nikitaelcov899@gmail.com</a></li>
-                <li><a href="https://github.com/NikitaYmedia">GitHub</a></li>
-                <li><a href="https://www.linkedin.com/in/nikita-yeltsov-8098643b7">LinkedIn</a></li>
-            </ul>
-        </section>
+                    </li>
+                    <li class="skill-group">
+                        <h3>Practices</h3>
+                        <ul class="chips">
+                            <li>Responsive design</li>
+                            <li>Accessibility</li>
+                            <li>Clean code</li>
+                            <li>REST API</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <section class="section" id="about">
+                <h2>About me</h2>
+                <p>I'm a frontend developer focused on building thoughtful digital experiences — from responsive
+                    interfaces and interactive features to clean architecture and seamless API integration. I care about
+                    writing simple, maintainable code and creating products that feel fast, intuitive and reliable.</p>
+            </section>
+            <section class="section" id="contact">
+                <h2>Contacts</h2>
+                <p>Have a project or a question? Feel free to get in touch.</p>
+                <ul class="links">
+                    <li><a href="mailto:nikitaelcov899@gmail.com">Email me</a></li>
+                    <li><a href="https://github.com/NikitaYmedia" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    </li>
+                    <li><a href="https://www.linkedin.com/in/nikita-yeltsov-8098643b7" target="_blank"
+                            rel="noopener noreferrer">LinkedIn</a></li>
+                </ul>
+            </section>
+        </div>
     </main>
-
     <footer class="footer">
-        <p>&copy; <span id="year"></span> Nikita Yeltsov</p>
+        <p>© <span id="year"></span> Nikita Yeltsov</p>
     </footer>
 </body>
 

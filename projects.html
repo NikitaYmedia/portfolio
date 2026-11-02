@@ -7,25 +7,16 @@
     <title>All projects – Nikita Yeltsov</title>
     <meta name="description" content="All projects by Nikita Yeltsov, a frontend developer.">
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.0/dist/umd/supabase.min.js" defer></script>
     <script src="script.js" defer></script>
 </head>
 
 <body>
-    <header class="header">
-        <a class="logo" href="index.html">Nikita Yeltsov</a>
-        <p class="online" id="online" hidden><span class="online-dot"></span><span id="online-count">1</span> online</p>
-        <a class="burger" href="#menu" aria-label="Open menu"><span></span></a>
-        <nav class="nav" id="menu" aria-label="Main">
-            <a class="menu-close" href="#close" aria-label="Close menu"></a>
-            <a href="index.html#projects">Projects</a>
-            <a href="index.html#skills">Skills</a>
-            <a href="index.html#pricing">Pricing</a>
-            <a href="index.html#about">About</a>
-            <a href="index.html#contact">Contact</a>
-            <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme"></button>
+    <header class="header header--solid">
+        <nav class="nav" id="menu" aria-label="Main navigation">
+            <a href="index.html#resume">Resume</a>
+            <a href="index.html#projects">Portfolio</a>
+            <a href="index.html#contact">Contacts</a>
         </nav>
-        <a class="menu-backdrop" href="#close" tabindex="-1" aria-hidden="true"></a>
     </header>
 
     <main>
@@ -39,12 +30,13 @@
             <ul class="cards">
                 <li class="card">
                     <div class="project-media">
-                        <img class="project-image" src="img/TIDE.png" alt="Screenshot of Project One">
+                        <img class="project-image" src="img/TIDE.png" alt="TIDE preview">
                     </div>
                     <div class="project-body">
                         <h3>TIDE</h3>
-                        <p>A site created as a practice project, focusing on visuals and working with frameworks and
-                            libraries.</p>
+                        <p>A concept landing page built to practice visual storytelling. The challenge was making a
+                            calm, minimal design feel alive without hurting performance, so I used Framer Motion for
+                            subtle animations within a Next.js and TypeScript setup.</p>
                         <ul class="tags">
                             <li>Next.js</li>
                             <li>React</li>
@@ -63,11 +55,13 @@
                 </li>
                 <li class="card">
                     <div class="project-media">
-                        <img class="project-image" src="img/pro10.png" alt="Screenshot of Project Two">
+                        <img class="project-image" src="img/pro10.png" alt="User Authentication App preview">
                     </div>
                     <div class="project-body">
                         <h3>User Authentication App</h3>
-                        <p>A full-stack web application with user registration and login.</p>
+                        <p>A full-stack app where users can register and log in. The main task was handling
+                            credentials safely: passwords are hashed with bcrypt, sessions are managed with
+                            express-session, and user data is stored in PostgreSQL (Neon).</p>
                         <ul class="tags">
                             <li>HTML</li>
                             <li>Node.js</li>
@@ -91,13 +85,14 @@
                 </li>
                 <li class="card">
                     <div class="project-media">
-                        <img class="project-image" src="img/pro9.png" alt="Screenshot of Project Two">
+                        <img class="project-image" src="img/pro9.png" alt="RECEIPT preview">
                     </div>
                     <div class="project-body">
                         <h3>RECEIPT</h3>
-                        <p>A mobile-first web app (PWA) for keeping track of purchases, receipts, warranties, and
-                            manuals. Everything lives in one place, and the home screen always shows what all your
-                            belongings are worth.</p>
+                        <p>People lose receipts and warranties exactly when they need them. I built a mobile-first
+                            PWA that keeps purchases, receipts, warranties and manuals in one place, and the home
+                            screen shows the total value of everything you own. Built with React, TypeScript and
+                            Supabase.</p>
                         <ul class="tags">
                             <li>React 18</li>
                             <li>TypeScript</li>
@@ -119,11 +114,12 @@
                 </li>
                 <li class="card">
                     <div class="project-media">
-                        <img class="project-image" src="img/pro8.png" alt="Screenshot of Project Two">
+                        <img class="project-image" src="img/pro8.png" alt="DANSK Sprog · Muligheder · Fremtid preview">
                     </div>
                     <div class="project-body">
                         <h3>DANSK Sprog · Muligheder · Fremtid</h3>
-                        <p>A template created for educational purposes, demonstrating my JavaScript skills.</p>
+                        <p>A learning-focused template that shows how I structure a multi-section Next.js 15 / React 19
+                            site in plain JavaScript (JSX).</p>
                         <ul class="tags">
                             <li>Next.js 15</li>
                             <li>React 19</li>
@@ -143,11 +139,12 @@
                 </li>
                 <li class="card">
                     <div class="project-media">
-                        <img class="project-image" src="img/SPIDER.png" alt="Screenshot of Project Two">
+                        <img class="project-image" src="img/SPIDER.png" alt="Cinema preview">
                     </div>
                     <div class="project-body">
                         <h3>Cinema</h3>
-                        <p>A simple educational website created to demonstrate API integration.</p>
+                        <p>Two small projects built to learn working with external APIs: fetching data, handling
+                            responses and rendering it cleanly in the UI with vanilla JavaScript.</p>
                         <ul class="tags">
                             <li>HTML</li>
                             <li>Rest API</li>
@@ -165,11 +162,12 @@
                 </li>
                 <li class="card">
                     <div class="project-media">
-                        <img class="project-image" src="img/LEGE.png" alt="Screenshot of Project Three">
+                        <img class="project-image" src="img/LEGE.png" alt="Legetoj preview">
                     </div>
                     <div class="project-body">
                         <h3>Legetoj</h3>
-                        <p>A simple educational website created to demonstrate API integration.</p>
+                        <p>Two small projects built to learn working with external APIs: fetching data, handling
+                            responses and rendering it cleanly in the UI with vanilla JavaScript.</p>
                         <ul class="tags">
                             <li>HTML</li>
                             <li>Rest API</li>
@@ -186,12 +184,12 @@
                 </li>
                 <li class="card">
                     <div class="project-media">
-                        <img class="project-image" src="img/PRIMA.png" alt="Screenshot of Project Four">
+                        <img class="project-image" src="img/PRIMA.png" alt="Prima Rengøring preview">
                     </div>
                     <div class="project-body">
                         <h3>Prima Rengøring</h3>
-                        <p>This site was created for a real cleaning company and currently serves as its primary
-                            website.</p>
+                        <p>A real website for a cleaning company, and it is now their main site. I turned the company’s
+                            needs into a clear, simple page that works well for their customers.</p>
                         <ul class="tags">
                             <li>HTML</li>
                             <li>CSS</li>
@@ -205,13 +203,13 @@
                 </li>
                 <li class="card">
                     <div class="project-media">
-                        <img class="project-image" src="img/VOID.png" alt="Screenshot of Project Two">
+                        <img class="project-image" src="img/VOID.png" alt="VOID Lounge, Enter the VOID preview">
                     </div>
                     <div class="project-body">
                         <h3>VOID Lounge, Enter the VOID</h3>
-                        <p>A responsive landing page for a fictional hookah lounge, featuring a dark neon aesthetic. It
-                            includes a menu with animated flavor filtering, a table reservation form with validation and
-                            messenger integration, a gallery, and a map showing the address and opening hours.</p>
+                        <p>A landing page for a fictional lounge with a dark neon style. It includes a menu with
+                            animated flavor filtering, a reservation form with validation and messenger integration
+                            through a Next.js API route, a gallery and a map with opening hours.</p>
                         <ul class="tags">
                             <li>Next.js</li>
                             <li>Tailwind CSS</li>
@@ -231,11 +229,13 @@
                 </li>
                 <li class="card">
                     <div class="project-media">
-                        <img class="project-image" src="img/pro6.jpg" alt="Screenshot of Project Three">
+                        <img class="project-image" src="img/pro6.jpg" alt="Pocket preview">
                     </div>
                     <div class="project-body">
                         <h3>Pocket</h3>
-                        <p>Mobile web app for expense tracking. Transfers, salary, groceries, etc.</p>
+                        <p>A mobile web app for tracking expenses (transfers, salary, groceries and so on). State is
+                            managed with Zustand, data is saved in localStorage, and spending is visualized with
+                            Recharts.</p>
                         <ul class="tags">
                             <li>React</li>
                             <li>Lucide React</li>

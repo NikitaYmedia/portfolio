@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Admin – Reviews</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="config.js"></script>
+    <script src="api.js"></script>
+</head>
+
+<body>
+    <header class="header header--solid">
+        <nav class="nav" aria-label="Main navigation"><a href="index.html">Back to site</a></nav>
+    </header>
+    <main class="admin">
+        <h1>Reviews admin</h1>
+        <p id="notice" class="form-error" hidden></p>
+
+        <form id="login" class="admin-login" hidden>
+            <label for="email">Email</label>
+            <input id="email" type="email" autocomplete="username" required>
+            <label for="password">Password</label>
+            <input id="password" type="password" autocomplete="current-password" required>
+            <p id="login-error" class="form-error" role="alert" hidden></p>
+            <button class="button" type="submit">Log in</button>
+        </form>
+
+        <section id="panel" hidden>
+            <div class="admin-bar"><span id="count"></span><button class="button" id="logout" type="button">Log out</button></div>
+            <ul class="reviews" id="admin-list"></ul>
+        </section>
+    </main>
+
+    <script>
+        (function () {
+            var API = window.ReviewsAPI, TK = 'admin_token';
+            var $ = function (id) { return document.getElementById(id); };
+            var token = null;
+            try { token = sessionStorage.getItem(TK); } catch (_) { }
+
+            if (!API || !API.enabled) {
+                $('notice').textContent = 'Supabase is not configured yet. Fill in config.js first.';
+                $('notice').hidden = false; return;
+            }
+
+            function logout() {
+                token = null; try { sessionStorage.removeItem(TK); } catch (_) { }
+                $('panel').hidden = true; $('login').hidden = false;
+            }
+            function fail(err) {
+                if (err && (err.status === 401 || err.status === 403)) { logout(); $('login-error').textContent = 'Session expired. Please log in again.'; $('login-error').hidden = false; }
+                else alert('Something went wrong. Please try again.');
+            }
+
+            function row(r) {
+                var li = document.createElement('li'); li.className = 'review';
+                var head = document.createElement('div'); head.className = 'review-head';
+                var name = document.createElement('span'); name.className = 'review-name'; name.textContent = r.name;
+                if (!r.approved) { var b = document.createElement('span'); b.className = 'badge-pending'; b.textContent = 'Pending'; name.appendChild(b); }
+                var stars = document.createElement('span'); stars.className = 'review-stars'; stars.textContent = '★'.repeat(r.rating) + '☆'.repeat(5 - r.rating);
+                head.appendChild(name); head.appendChild(stars);
+                var text = document.createElement('p'); text.className = 'review-text'; text.textContent = r.text;
+                var date = document.createElement('p'); date.className = 'review-date'; date.textContent = new Date(r.created_at).toLocaleString('en-GB');
+                var act = document.createElement('div'); act.className = 'review-actions';
+                if (!r.approved) {
+                    var ok = document.createElement('button'); ok.type = 'button'; ok.textContent = 'Approve';
+                    ok.onclick = function () { API.approve(token, r.id).then(load).catch(fail); };
+                    act.appendChild(ok);
+                }
+                var del = document.createElement('button'); del.type = 'button'; del.className = 'danger'; del.textContent = 'Delete';
+                del.onclick = function () { if (confirm('Delete this review permanently?')) API.remove(token, r.id).then(load).catch(fail); };
+                act.appendChild(del);
+                li.appendChild(head); li.appendChild(text); li.appendChild(date); li.appendChild(act);
+                return li;
+            }
+
+            function load() {
+                API.list(token).then(function (rows) {
+                    $('login').hidden = true; $('panel').hidden = false;
+                    $('count').textContent = rows.length + (rows.length === 1 ? ' review' : ' reviews');
+                    var ul = $('admin-list'); ul.textContent = '';
+                    if (!rows.length) { var e = document.createElement('li'); e.className = 'reviews-empty'; e.textContent = 'No reviews yet.'; ul.appendChild(e); }
+                    rows.forEach(function (r) { ul.appendChild(row(r)); });
+                }).catch(fail);
+            }
+
+            $('login').addEventListener('submit', function (e) {
+                e.preventDefault();
+                API.login($('email').value.trim(), $('password').value).then(function (d) {
+                    token = d.access_token; try { sessionStorage.setItem(TK, token); } catch (_) { }
+                    $('login-error').hidden = true; $('password').value = ''; load();
+                }).catch(function () { $('login-error').textContent = 'Wrong email or password.'; $('login-error').hidden = false; });
+            });
+            $('logout').addEventListener('click', logout);
+
+            if (token) load(); else $('login').hidden = false;
+        })();
+    </script>
+</body>
+
+</html>

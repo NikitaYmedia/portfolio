@@ -8,13 +8,16 @@
     <meta name="description" content="Portfolio of Nikita Yeltsov, frontend developer.">
     <link rel="stylesheet" href="style.css">
     <script>try { if (sessionStorage.getItem("pt")) { sessionStorage.removeItem("pt"); document.documentElement.classList.add("pt-arrive") } } catch (e) { }</script>
+    <script src="config.js"></script>
+    <script src="api.js"></script>
     <script src="script.js" defer></script>
 </head>
 
 <body>
     <header class="header">
         <nav class="nav" aria-label="Main navigation">
-            <a href="#resume">Resume</a><a href="#projects">Portfolio</a><a href="#contact">Contacts</a>
+            <a href="#resume">Resume</a><a href="#projects">Portfolio</a><a href="#about">About us</a><a
+                href="#reviews">Reviews</a><a href="#contact">Contacts</a>
         </nav>
     </header>
     <main id="top">
@@ -151,10 +154,62 @@
                 </ul>
             </section>
             <section class="section" id="about">
-                <h2>About me</h2>
-                <p>I'm a frontend developer focused on building thoughtful digital experiences — from responsive
-                    interfaces and interactive features to clean architecture and seamless API integration. I care about
-                    writing simple, maintainable code and creating products that feel fast, intuitive and reliable.</p>
+                <h2>About us</h2>
+                <p>We build websites for people and businesses who need a clear, fast and reliable online presence —
+                    from a simple landing page to a full web application. Every project starts with your goals and ends
+                    with a responsive, maintainable site that works well on any device.</p>
+                <ul class="services">
+                    <li class="service">
+                        <h3>Landing pages &amp; business sites</h3>
+                        <p>Clean, responsive sites that explain what you do and make it easy for customers to contact
+                            you.</p>
+                    </li>
+                    <li class="service">
+                        <h3>Web applications</h3>
+                        <p>Interactive apps with React, Next.js and TypeScript, connected to databases and APIs.</p>
+                    </li>
+                    <li class="service">
+                        <h3>Redesign &amp; improvements</h3>
+                        <p>Refreshing an existing site: better design, faster loading and a smoother experience.</p>
+                    </li>
+                </ul>
+                <div class="projects-more"><a class="button" href="#contact">Order a website</a></div>
+            </section>
+            <section class="section" id="reviews">
+                <h2>Reviews</h2>
+                <p class="section-lead">Worked with us? Share your experience — it helps others choose.</p>
+                <div class="reviews-layout">
+                    <form class="review-form" id="review-form" novalidate>
+                        <h3>Leave a review</h3>
+                        <label for="review-name">Your name</label>
+                        <input id="review-name" name="name" type="text" maxlength="60" autocomplete="name" required>
+                        <fieldset class="rating-input">
+                            <legend>Rating</legend>
+                            <div class="stars-input">
+                                <input type="radio" id="star5" name="rating" value="5"><label for="star5"
+                                    title="5 stars">★</label>
+                                <input type="radio" id="star4" name="rating" value="4"><label for="star4"
+                                    title="4 stars">★</label>
+                                <input type="radio" id="star3" name="rating" value="3"><label for="star3"
+                                    title="3 stars">★</label>
+                                <input type="radio" id="star2" name="rating" value="2"><label for="star2"
+                                    title="2 stars">★</label>
+                                <input type="radio" id="star1" name="rating" value="1"><label for="star1"
+                                    title="1 star">★</label>
+                            </div>
+                        </fieldset>
+                        <label for="review-text">Your review</label>
+                        <textarea id="review-text" name="text" rows="5" maxlength="600" required></textarea>
+                        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+                        <p class="form-error" id="review-error" role="alert" hidden></p>
+                        <p class="form-ok" id="review-ok" role="status" hidden></p>
+                        <button class="button" type="submit">Submit review</button>
+                    </form>
+                    <div class="reviews-list-wrap">
+                        <p class="reviews-summary" id="reviews-summary"></p>
+                        <ul class="reviews" id="reviews-list" aria-live="polite"></ul>
+                    </div>
+                </div>
             </section>
             <section class="section" id="contact">
                 <h2>Contacts</h2>
@@ -170,7 +225,35 @@
         </div>
     </main>
     <footer class="footer">
-        <p>© <span id="year"></span> Nikita Yeltsov</p>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <strong>Nikita Yeltsov</strong>
+                <p>We build fast, responsive and reliable websites.</p>
+            </div>
+            <nav class="footer-nav" aria-label="Footer navigation">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="#top">Home</a></li>
+                    <li><a href="#resume">Resume</a></li>
+                    <li><a href="#projects">Portfolio</a></li>
+                    <li><a href="projects.html">All projects</a></li>
+                    <li><a href="#about">About us</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#contact">Contacts</a></li>
+                </ul>
+            </nav>
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:nikitaelcov899@gmail.com">Email</a></li>
+                    <li><a href="https://github.com/NikitaYmedia" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    </li>
+                    <li><a href="https://www.linkedin.com/in/nikita-yeltsov-8098643b7" target="_blank"
+                            rel="noopener noreferrer">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="footer-bottom">© <span id="year"></span> Nikita Yeltsov. All rights reserved.</p>
     </footer>
 </body>
 

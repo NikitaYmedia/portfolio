@@ -10,6 +10,7 @@
     <script>try { if (sessionStorage.getItem("pt")) { sessionStorage.removeItem("pt"); document.documentElement.classList.add("pt-arrive") } } catch (e) { }</script>
     <script src="config.js"></script>
     <script src="api.js"></script>
+    <script src="i18n.js" defer></script>
     <script src="script.js" defer></script>
 </head>
 
@@ -18,6 +19,12 @@
         <nav class="nav" aria-label="Main navigation">
             <a href="#resume">Resume</a><a href="#projects">Portfolio</a><a href="#about">About us</a><a
                 href="#reviews">Reviews</a><a href="#contact">Contacts</a>
+            <div class="lang" role="group" aria-label="Language">
+                <button type="button" data-lang="en" aria-pressed="true">EN</button>
+                <button type="button" data-lang="de" aria-pressed="false">DE</button>
+                <button type="button" data-lang="da" aria-pressed="false">DA</button>
+                <button type="button" data-lang="uk" aria-pressed="false">UA</button>
+            </div>
         </nav>
     </header>
     <main id="top">
@@ -215,12 +222,11 @@
                 <h2>Contacts</h2>
                 <p>Have a project or a question? Feel free to get in touch.</p>
                 <ul class="links">
-                    <li><a href="mailto:nikitaelcov899@gmail.com">Email</a></li>
+                    <li><a href="mailto:nikitaelcov899@gmail.com">Email me</a></li>
                     <li><a href="https://github.com/NikitaYmedia" target="_blank" rel="noopener noreferrer">GitHub</a>
                     </li>
                     <li><a href="https://www.linkedin.com/in/nikita-yeltsov-8098643b7" target="_blank"
                             rel="noopener noreferrer">LinkedIn</a></li>
-                            <li><a>+4555239862</a></li>
                 </ul>
             </section>
         </div>
@@ -251,11 +257,10 @@
                     </li>
                     <li><a href="https://www.linkedin.com/in/nikita-yeltsov-8098643b7" target="_blank"
                             rel="noopener noreferrer">LinkedIn</a></li>
-                    <li><a>+4555239862</a></li>
                 </ul>
             </div>
         </div>
-        <p class="footer-bottom">© <span id="year"></span> Nikita Yeltsov. All rights reserved.</p>
+        <p class="footer-bottom">© <span id="year"></span> Nikita Yeltsov. <span>All rights reserved.</span></p>
     </footer>
 </body>
 

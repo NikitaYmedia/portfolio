@@ -57,6 +57,8 @@ document.querySelectorAll('.avatar img, .resume-avatar img').forEach((img) => {
     var KEY = 'portfolio_reviews_v1', summary = document.getElementById('reviews-summary');
     var errorEl = document.getElementById('review-error');
     var okEl = document.getElementById('review-ok');
+    var T = function (x) { return window.I18N ? I18N.t(x) : x; };
+    var last = null;
 
     function loadLocal() {
         try { var d = JSON.parse(localStorage.getItem(KEY) || '[]'); return Array.isArray(d) ? d : []; } catch (_) { return []; }
@@ -65,13 +67,13 @@ document.querySelectorAll('.avatar img, .resume-avatar img').forEach((img) => {
         if (!remote) return Promise.resolve(loadLocal());
         return API.list().then(function (rows) { return rows.filter(function (r) { return r.approved !== false; }); });
     }
-    function showError(m) { errorEl.textContent = m; errorEl.hidden = false; if (okEl) okEl.hidden = true; }
+    function showError(m) { errorEl.textContent = T(m); errorEl.hidden = false; if (okEl) okEl.hidden = true; }
 
     function draw(items) {
         list.textContent = '';
         if (!items.length) {
             var li = document.createElement('li'); li.className = 'reviews-empty';
-            li.textContent = 'No reviews yet. Be the first to leave one!';
+            li.textContent = T('No reviews yet. Be the first to leave one!');
             list.appendChild(li); summary.textContent = ''; return;
         }
         var sum = 0;
@@ -90,17 +92,17 @@ document.querySelectorAll('.avatar img, .resume-avatar img').forEach((img) => {
             head.appendChild(name); head.appendChild(stars);
             var text = document.createElement('p'); text.className = 'review-text'; text.textContent = r.text;
             var date = document.createElement('p'); date.className = 'review-date';
-            date.textContent = new Date(r.created_at || r.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+            date.textContent = new Date(r.created_at || r.date).toLocaleDateString(window.I18N ? I18N.locale() : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
             el.appendChild(head); el.appendChild(text); el.appendChild(date);
             list.appendChild(el);
         });
-        summary.textContent = (sum / items.length).toFixed(1) + ' / 5 · ' + items.length + (items.length === 1 ? ' review' : ' reviews');
+        summary.textContent = (sum / items.length).toFixed(1) + ' / 5 · ' + items.length + ' ' + (window.I18N ? I18N.reviewsWord(items.length) : (items.length === 1 ? 'review' : 'reviews'));
     }
 
     function render() {
-        getItems().then(draw).catch(function () {
+        getItems().then(function (items) { last = items; draw(items); }).catch(function () {
             list.textContent = ''; var li = document.createElement('li'); li.className = 'reviews-empty';
-            li.textContent = 'Reviews could not be loaded right now.'; list.appendChild(li);
+            li.textContent = T('Reviews could not be loaded right now.'); list.appendChild(li);
         });
     }
 
@@ -121,7 +123,7 @@ document.querySelectorAll('.avatar img, .resume-avatar img').forEach((img) => {
 
         var done = function () {
             form.reset(); btn.disabled = false;
-            if (okEl) { okEl.textContent = 'Thank you! Your review was sent.'; okEl.hidden = false; }
+            if (okEl) { okEl.textContent = T('Thank you! Your review was sent.'); okEl.hidden = false; }
             render();
         };
         if (remote) {
@@ -131,6 +133,11 @@ document.querySelectorAll('.avatar img, .resume-avatar img').forEach((img) => {
             try { localStorage.setItem(KEY, JSON.stringify(items.slice(0, 100))); done(); }
             catch (_) { btn.disabled = false; showError('Could not save the review in this browser.'); }
         }
+    });
+
+    document.addEventListener('langchange', function () {
+        errorEl.hidden = true; if (okEl) okEl.hidden = true;
+        if (last) draw(last); else render();
     });
 
     render();

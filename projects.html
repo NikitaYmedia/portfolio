@@ -8,6 +8,7 @@
     <meta name="description" content="All projects by Nikita Yeltsov, a frontend developer.">
     <link rel="stylesheet" href="style.css">
     <script>try { if (sessionStorage.getItem("pt")) { sessionStorage.removeItem("pt"); document.documentElement.classList.add("pt-arrive") } } catch (e) { }</script>
+    <script src="i18n.js" defer></script>
     <script src="script.js" defer></script>
 </head>
 
@@ -19,6 +20,12 @@
             <a href="index.html#about">About us</a>
             <a href="index.html#reviews">Reviews</a>
             <a href="index.html#contact">Contacts</a>
+            <div class="lang" role="group" aria-label="Language">
+                <button type="button" data-lang="en" aria-pressed="true">EN</button>
+                <button type="button" data-lang="de" aria-pressed="false">DE</button>
+                <button type="button" data-lang="da" aria-pressed="false">DA</button>
+                <button type="button" data-lang="uk" aria-pressed="false">UA</button>
+            </div>
         </nav>
     </header>
 
@@ -295,7 +302,7 @@
                 </ul>
             </div>
         </div>
-        <p class="footer-bottom">&copy; <span id="year"></span> Nikita Yeltsov. All rights reserved.</p>
+        <p class="footer-bottom">&copy; <span id="year"></span> Nikita Yeltsov. <span>All rights reserved.</span></p>
     </footer>
 </body>
 

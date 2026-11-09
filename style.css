@@ -1102,3 +1102,58 @@ html.pt-arrive.pt-reveal::after {
     border-radius: 20px;
     margin-left: 8px
 }
+
+/* Language switcher */
+.nav {
+    flex-wrap: wrap;
+    justify-content: center
+}
+
+.lang {
+    display: flex;
+    gap: 4px;
+    margin-left: 4px;
+    padding-left: 24px;
+    border-left: 1px solid rgba(255, 255, 255, .4)
+}
+
+.lang button {
+    font: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    color: #fff;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 14px;
+    padding: 3px 9px;
+    cursor: pointer;
+    opacity: .85;
+    transition: background .2s, color .2s
+}
+
+.lang button:hover {
+    opacity: 1;
+    border-color: rgba(255, 255, 255, .6)
+}
+
+.lang button[aria-pressed=true] {
+    background: #fff;
+    color: var(--deep);
+    opacity: 1
+}
+
+.lang button:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 2px
+}
+
+@media(max-width:560px) {
+    .lang {
+        flex-basis: 100%;
+        justify-content: center;
+        border-left: 0;
+        padding-left: 0;
+        margin: 2px 0 0
+    }
+}

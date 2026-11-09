@@ -2,10 +2,13 @@
 (function () {
     var cfg = window.SITE_CONFIG || {};
     var enabled = !!(cfg.SUPABASE_URL && cfg.SUPABASE_ANON_KEY);
-    var base = (cfg.SUPABASE_URL || '').replace(/\/+$/, '');
+    var base = (cfg.SUPABASE_URL || '').trim().replace(/\/rest\/v1\/?$/, '').replace(/\/+$/, '');
 
     function headers(token, extra) {
-        var h = { apikey: cfg.SUPABASE_ANON_KEY, Authorization: 'Bearer ' + (token || cfg.SUPABASE_ANON_KEY), 'Content-Type': 'application/json' };
+        var h = { apikey: cfg.SUPABASE_ANON_KEY, 'Content-Type': 'application/json' };
+        // New-style keys (sb_publishable_...) are not JWTs and must only go in the apikey header.
+        if (token) h.Authorization = 'Bearer ' + token;
+        else if (/^eyJ/.test(cfg.SUPABASE_ANON_KEY)) h.Authorization = 'Bearer ' + cfg.SUPABASE_ANON_KEY;
         for (var k in extra) h[k] = extra[k];
         return h;
     }

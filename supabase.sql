@@ -28,8 +28,8 @@ create policy "public can add reviews"
 create policy "admin full access"
     on public.reviews for all
     to authenticated
-    using ((auth.jwt() ->> 'email') = 'YOUR_ADMIN_EMAIL')
-    with check ((auth.jwt() ->> 'email') = 'YOUR_ADMIN_EMAIL');
+    using ((auth.jwt() ->> 'email') = 'nikitaelcov899@gmail.com')
+    with check ((auth.jwt() ->> 'email') = 'nikitaelcov899@gmail.com');
 
 -- MODERATION (optional): to show new reviews only after you approve them, run this instead/afterwards:
 --   alter table public.reviews alter column approved set default false;

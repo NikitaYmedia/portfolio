@@ -85,7 +85,6 @@
         buttons.forEach(function (b) { b.addEventListener('click', function () { apply(b.getAttribute('data-filter')); }); });
     }
 
-    /* page transition between home and projects */
     var KEY = 'pt';
     if (root.classList.contains('pt-arrive')) {
         requestAnimationFrame(function () {

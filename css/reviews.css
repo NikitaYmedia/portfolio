@@ -422,3 +422,42 @@ textarea.input {
         justify-self: start;
     }
 }
+
+/* ---------- Review screenshots ---------- */
+.reviews-column {
+    display: grid;
+    gap: 16px;
+    min-width: 0;
+}
+
+.review-shots {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    align-items: start;
+}
+
+.review-shots:empty {
+    display: none;
+}
+
+.review-shot {
+    padding: 10px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    background: var(--surface);
+    overflow: hidden;
+}
+
+.review-shot img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+}
+
+@media (max-width: 560px) {
+    .review-shots {
+        grid-template-columns: 1fr;
+    }
+}
+

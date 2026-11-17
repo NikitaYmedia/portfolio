@@ -1,0 +1,6 @@
+.env
+.env.local
+config.js
+secrets.json
+api.js
+config.js

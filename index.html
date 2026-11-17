@@ -6,263 +6,368 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Nikita Yeltsov — Frontend Developer</title>
     <meta name="description" content="Portfolio of Nikita Yeltsov, frontend developer.">
-    <link rel="stylesheet" href="style.css">
+    <meta name="theme-color" content="#f6f5f2">
+    <link rel="preload" href="fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/reviews.css">
     <script>try { if (sessionStorage.getItem("pt")) { sessionStorage.removeItem("pt"); document.documentElement.classList.add("pt-arrive") } } catch (e) { }</script>
-    <script src="config.js"></script>
-    <script src="api.js"></script>
-    <script src="i18n.js" defer></script>
-    <script src="script.js" defer></script>
+    <script src="js/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/i18n.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/reviews.js" defer></script>
 </head>
 
 <body>
-    <header class="header">
-        <nav class="nav" aria-label="Main navigation">
-            <a href="#resume">Resume</a><a href="#projects">Portfolio</a><a href="#about">About us</a><a
-                href="#reviews">Reviews</a><a href="#contact">Contacts</a>
-            <div class="lang" role="group" aria-label="Language">
-                <button type="button" data-lang="en" aria-pressed="true">EN</button>
-                <button type="button" data-lang="de" aria-pressed="false">DE</button>
-                <button type="button" data-lang="da" aria-pressed="false">DA</button>
-                <button type="button" data-lang="uk" aria-pressed="false">UA</button>
+    <a class="skip-link" href="#main"><span>Skip to content</span></a>
+    <header class="header" id="top">
+        <div class="container header__inner">
+            <a class="brand" href="#top" aria-label="Nikita Yeltsov">
+                <span class="brand__name">Nikita Yeltsov</span>
+                <span class="brand__role">Design Engineer</span>
+            </a>
+            <nav class="nav" id="menu" aria-label="Main navigation">
+                    <a class="nav__link" href="#projects"><span>Works</span></a>
+                    <a class="nav__link" href="#philosophy"><span>Philosophy</span></a>
+                    <a class="nav__link" href="#services"><span>Services</span></a>
+                    <a class="nav__link" href="#reviews"><span>Reviews</span></a>
+                    <a class="nav__link" href="#contact"><span>Contact</span></a>
+            </nav>
+            <div class="header__actions">
+                <div class="lang" role="group" aria-label="Language">
+                    <button class="lang__button" type="button" data-lang="en" aria-pressed="true">EN</button>
+                    <button class="lang__button" type="button" data-lang="de" aria-pressed="false">DE</button>
+                    <button class="lang__button" type="button" data-lang="da" aria-pressed="false">DA</button>
+                    <button class="lang__button" type="button" data-lang="uk" aria-pressed="false">UA</button>
+                </div>
+                <a class="button button--primary button--small" href="#contact"><span>Initiate Brief</span></a>
+                <button class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span class="icon icon--menu" aria-hidden="true"></span><span class="icon icon--close" aria-hidden="true"></span></button>
             </div>
-        </nav>
+        </div>
     </header>
-    <main id="top">
+    <main id="main">
+
+        <!-- HERO -->
         <section class="hero">
-            <div class="avatar"><img src="img/image.png" alt="Nikita Yeltsov" onerror="this.remove()"><span
-                    aria-hidden="true">NY</span></div>
-            <h1>Nikita Yeltsov</h1>
-            <p>Frontend Developer</p>
+            <div class="container hero__grid">
+                <div class="hero__copy">
+                    <p class="crumbs"><span>Denmark</span><span class="icon icon--chevron-right" aria-hidden="true"></span><span>Portfolio &amp; Selected Works</span></p>
+                    <h1 class="hero__title">Disciplined code / intentional design.</h1>
+                    <p class="hero__lead">Frontend developer dedicated to building tactile, responsive web spaces where Scandinavian minimalism meets high-performance React &amp; Next.js architecture.</p>
+                    <div class="hero__actions">
+                        <a class="button button--primary" href="#projects"><span>Explore Selected Works</span><span class="icon icon--arrow-down" aria-hidden="true"></span></a>
+                        <a class="button button--secondary" href="#philosophy"><span>Read Architecture Notes</span></a>
+                    </div>
+                    <dl class="stats">
+                        <div class="stat"><dt class="stat__label">Performance</dt><dd class="stat__value">100%</dd></div>
+                        <div class="stat"><dt class="stat__label">Architecture</dt><dd class="stat__value">Full-Stack</dd></div>
+                        <div class="stat"><dt class="stat__label">Languages</dt><dd class="stat__value">EN / DE / DA / UA</dd></div>
+                    </dl>
+                </div>
+                <aside class="profile" aria-label="Profile">
+                    <div class="profile__stage">
+                        <img class="profile__photo" src="img/image.png" alt="Nikita Yeltsov" width="1254" height="1254" fetchpriority="high">
+                    </div>
+                    <div class="profile__footer">
+                        <div>
+                            <span class="profile__name">Nikita Yeltsov</span>
+                            <span class="profile__role">Frontend Engineer &amp; Architect</span>
+                        </div>
+                        <span class="profile__badge"><span class="icon icon--settings" aria-hidden="true"></span></span>
+                    </div>
+                </aside>
+            </div>
         </section>
-        <div class="content">
-            <section class="section" id="resume">
-                <h2>Resume</h2>
-                <div class="resume-grid">
-                    <div class="resume-avatar"><img src="img/image.png" alt="Nikita Yeltsov"
-                            onerror="this.remove()"><span aria-hidden="true">NY</span></div>
-                    <div class="resume-copy">
-                        <h3>Nikita Yeltsov</h3>
-                        <p class="lead">Frontend developer focused on building thoughtful, responsive web experiences.
-                        </p>
-                        <h4>Professional skills</h4>
-                        <ul>
-                            <li>HTML, CSS and JavaScript</li>
-                            <li>React, Next.js and TypeScript</li>
-                            <li>Responsive design and accessibility</li>
-                            <li>REST API integration and clean, maintainable code</li>
-                        </ul>
-                        <h4>Tools and technologies</h4>
-                        <p>Git, GitHub, Vercel, Supabase, PostgreSQL, Figma and VS Code.</p>
-                        <a class="button button-cv" href="cv/Nikita Yeltsov  CV.pdf" download="Nikita-Yeltsov-CV.pdf">
-                            </svg>Download CV</a>
+
+        <!-- PHILOSOPHY -->
+        <section class="section section--alt philosophy" id="philosophy">
+            <div class="container">
+                <div class="philosophy__top">
+                    <div class="philosophy__label">
+                        <strong>Design Philosophy</strong>
+                        <span>Scandinavian Functionalism</span>
+                    </div>
+                    <div>
+                        <blockquote>
+                            <p class="quote">“Good design is as little design as possible. Great code is invisible, performant, and enduring.”</p>
+                        </blockquote>
+                        <p class="philosophy__text">Derived from Dieter Rams and honed through Scandinavian architectural practice, my engineering ethos prioritizes content clarity over decorative clutter. Zero extraneous DOM nodes, zero runtime friction.</p>
                     </div>
                 </div>
-            </section>
-            <section class="section" id="projects">
-                <h2>My projects</h2>
-                <ul class="projects">
-                    <li class="project">
-                        <div class="project-media"><img class="project-image" src="img/TIDE.png"
-                                alt="TIDE project preview"></div>
-                        <div class="project-body">
-                            <h3>TIDE</h3>
-                            <p>A concept landing page built to practice visual storytelling. The challenge was making a
-                                calm, minimal design feel alive without hurting performance, so I used Framer Motion for
-                                subtle animations within a Next.js and TypeScript setup.</p>
-                            <ul class="tags">
-                                <li>Next.js</li>
-                                <li>React</li>
-                                <li>TypeScript</li>
-                                <li>Framer Motion</li>
-                            </ul>
-                            <div class="project-links"><a href="https://tide-topaz-three.vercel.app" target="_blank"
-                                    rel="noopener noreferrer">Live preview</a><a
-                                    href="https://github.com/NikitaYmedia/tide" target="_blank"
-                                    rel="noopener noreferrer">GitHub</a></div>
-                        </div>
+                <ul class="features">
+                    <li class="feature">
+                        <div class="feature__head"><span class="eyebrow">Performance</span><span class="icon icon--gauge" aria-hidden="true"></span></div>
+                        <h3>100% Core Web Vitals</h3>
+                        <p>Fast paint cycles, lean static assets and accessible, semantic markup from the very first commit.</p>
                     </li>
-                    <li class="project">
-                        <div class="project-media"><img class="project-image" src="img/pro10.png"
-                                alt="User Authentication App preview"></div>
-                        <div class="project-body">
-                            <h3>User Authentication App</h3>
-                            <p>A full-stack app where users can register and log in. The main task was handling
-                                credentials safely: passwords are hashed with bcrypt, sessions are managed with
-                                express-session, and user data is stored in PostgreSQL (Neon).</p>
-                            <ul class="tags">
-                                <li>Node.js</li>
-                                <li>Express</li>
-                                <li>PostgreSQL</li>
-                                <li>CSS</li>
-                            </ul>
-                            <div class="project-links"><a href="https://github.com/NikitaYmedia/user-auth-app"
-                                    target="_blank" rel="noopener noreferrer">GitHub</a></div>
-                        </div>
+                    <li class="feature">
+                        <div class="feature__head"><span class="eyebrow">Engineering</span><span class="icon icon--terminal" aria-hidden="true"></span></div>
+                        <h3>Strict TypeScript</h3>
+                        <p>Typed components and typed content files. Deterministic, defensive compile-time safety across the interface.</p>
                     </li>
-                    <li class="project">
-                        <div class="project-media"><img class="project-image" src="img/image copy.png"
-                                alt="RECEIPT project preview"></div>
-                        <div class="project-body">
-                            <h3>Klip & Ro</h3>
-                            <p>Responsive bilingual (DA/EN) landing page for a Copenhagen salon, built from a custom
-                                design. Reusable React components, a typed content file for translations and prices, a
-                                filterable gallery, and the whole visual layer in plain CSS.</p>
-                            <ul class="tags">
-                                <li>React</li>
-                                <li>TypeScript</li>
-                                <li>Vite</li>
-                                <li>CSS</li>
-                            </ul>
-                            <div class="project-links"><a href="https://hair2-orpin.vercel.app" target="_blank"
-                                    rel="noopener noreferrer">Live preview</a><a
-                                    href="https://github.com/NikitaYmedia/hair2" target="_blank"
-                                    rel="noopener noreferrer">GitHub</a></div>
-                        </div>
+                    <li class="feature">
+                        <div class="feature__head"><span class="eyebrow">Localization</span><span class="icon icon--language" aria-hidden="true"></span></div>
+                        <h3>Multilingual Delivery</h3>
+                        <p>Fluid localization for Nordic and global audiences — English, German, Danish and Ukrainian — built in from the first line.</p>
                     </li>
                 </ul>
-                <div class="projects-more"><a class="button" href="projects.html">View all projects</a></div>
-            </section>
-            <section class="section" id="skills">
-                <h2>Skills</h2>
-                <ul class="skill-groups">
-                    <li class="skill-group">
-                        <h3>Development</h3>
-                        <ul class="chips">
-                            <li>HTML</li>
-                            <li>CSS</li>
-                            <li>JavaScript</li>
-                            <li>TypeScript</li>
-                            <li>React</li>
-                            <li>Next.js</li>
-                        </ul>
+            </div>
+        </section>
+
+        <!-- WORKS -->
+        <section class="section" id="projects">
+            <div class="container">
+                <header class="section-head">
+                    <div>
+                        <span class="eyebrow">Works &amp; Case Studies</span>
+                        <h2>Selected Architectures</h2>
+                    </div>
+                    <p class="section-head__text">A curated selection of production systems and client platforms engineered with high fidelity, structural clarity and responsive precision.</p>
+                </header>
+                <div class="works">
+                <article class="work work--reverse" id="work-tide" data-category="interactive">
+                    <div class="work__media">
+                        <span class="work__badge">Featured Monograph</span>
+                        <div class="work__frame"><img class="work__image" src="img/TIDE.png" alt="TIDE project preview" loading="lazy" decoding="async"></div>
+                    </div>
+                    <div class="work__body">
+                        <div class="work__meta"><span>Editorial Experience</span><span class="work__meta-right"><span>2024</span><span>Production</span></span></div>
+                        <h3 class="work__title display">TIDE</h3>
+                        <p class="work__subtitle">Concept Visual Storytelling &amp; Fluid Motion</p>
+                        <p class="work__text">A concept landing page built to practice visual storytelling. The challenge was making a calm, minimal design feel alive without hurting performance, so I used Framer Motion for subtle animations within a Next.js and TypeScript setup.</p>
+                        <ul class="tags" aria-label="Technologies"><li class="tag">Next.js</li><li class="tag">React</li><li class="tag">TypeScript</li><li class="tag">Framer Motion</li><li class="tag">CSS</li><li class="tag">Vercel</li></ul>
+                        <div class="work__actions"><a class="button button--light" href="https://tide-topaz-three.vercel.app" target="_blank" rel="noopener noreferrer"><span>Live Demonstration</span><span class="icon icon--arrow-up-right" aria-hidden="true"></span></a><a class="button button--ghost" href="https://github.com/NikitaYmedia/tide" target="_blank" rel="noopener noreferrer"><span>View Source</span><span class="icon icon--code" aria-hidden="true"></span></a></div>
+                    </div>
+                </article>
+                <article class="work" id="work-klip" data-category="client">
+                    <div class="work__media">
+                        <span class="work__badge">Danish Commerce</span>
+                        <div class="work__frame"><img class="work__image" src="img/image copy.png" alt="Klip &amp; Ro project preview" loading="lazy" decoding="async"></div>
+                    </div>
+                    <div class="work__body">
+                        <div class="work__meta"><span>Client Platform · Denmark</span><span class="work__meta-right"><span>2024</span><span>Bilingual</span></span></div>
+                        <h3 class="work__title display">KLIP &amp; RO</h3>
+                        <p class="work__subtitle">Bilingual Salon Experience</p>
+                        <p class="work__text">Responsive bilingual (DA/EN) landing page for a Danish salon, built from a custom design. Reusable React components, a typed content file for translations and prices, a filterable gallery, and the whole visual layer in plain CSS.</p>
+                        <ul class="tags" aria-label="Technologies"><li class="tag">React</li><li class="tag">TypeScript</li><li class="tag">Vite</li><li class="tag">CSS</li><li class="tag">Vercel</li><li class="tag">GitHub</li></ul>
+                        <div class="work__actions"><a class="button button--light" href="https://hair2-orpin.vercel.app" target="_blank" rel="noopener noreferrer"><span>Live Demonstration</span><span class="icon icon--arrow-up-right" aria-hidden="true"></span></a><a class="button button--ghost" href="https://github.com/NikitaYmedia/hair2" target="_blank" rel="noopener noreferrer"><span>View Source</span><span class="icon icon--code" aria-hidden="true"></span></a></div>
+                    </div>
+                </article>
+                <article class="work work--reverse" id="work-auth" data-category="fullstack">
+                    <div class="work__media">
+                        <span class="work__badge">Full-Stack Infrastructure</span>
+                        <div class="work__frame"><img class="work__image" src="img/pro10.png" alt="User Authentication App preview" loading="lazy" decoding="async"></div>
+                    </div>
+                    <div class="work__body">
+                        <div class="work__meta"><span>Security Engine &amp; Full-Stack</span><span class="work__meta-right"><span>2024</span><span>PostgreSQL</span></span></div>
+                        <h3 class="work__title display">AUTH &amp; SECURITY</h3>
+                        <p class="work__subtitle">Resilient Full-Stack Authentication</p>
+                        <p class="work__text">A full-stack app where users can register and log in. The main task was handling credentials safely: passwords are hashed with bcrypt, sessions are managed with express-session, and user data is stored in PostgreSQL (Neon).</p>
+                        <ul class="tags" aria-label="Technologies"><li class="tag">Node.js</li><li class="tag">Express</li><li class="tag">PostgreSQL</li><li class="tag">Neon</li><li class="tag">bcrypt</li><li class="tag">express-session</li></ul>
+                        <div class="work__actions"><a class="button button--light" href="https://github.com/NikitaYmedia/user-auth-app" target="_blank" rel="noopener noreferrer"><span>View Repository</span><span class="icon icon--arrow-up-right" aria-hidden="true"></span></a></div>
+                    </div>
+                </article>
+                </div>
+                <div class="works-more">
+                    <div>
+                        <strong>Complete Architectural Works</strong>
+                        <span>Production platforms, client sites and learning projects.</span>
+                    </div>
+                    <a class="button button--primary" href="projects.html" data-transition><span>Explore Full Project Archive</span><span class="count">9</span><span class="icon icon--arrow-right" aria-hidden="true"></span></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- STACK -->
+        <section class="section section--dark" id="skills">
+            <div class="container">
+                <header class="section-head">
+                    <div>
+                        <span class="eyebrow">Technical Foundation</span>
+                        <h2>Technical Stack</h2>
+                    </div>
+                </header>
+                <ul class="stack__grid">
+                    <li class="layer">
+                        <span class="eyebrow">Layer 01</span>
+                        <h3>Core Interface</h3>
+                        <p class="layer__text">The indestructible foundation of semantic markup and mathematical CSS logic.</p>
+                        <ul class="chips"><li class="chip">HTML</li><li class="chip">CSS</li><li class="chip">JavaScript</li></ul>
+                        <p class="layer__level">Master Craftsman</p>
                     </li>
-                    <li class="skill-group">
-                        <h3>Tools</h3>
-                        <ul class="chips">
-                            <li>Git</li>
-                            <li>GitHub</li>
-                            <li>Vercel</li>
-                            <li>Supabase</li>
-                            <li>PostgreSQL</li>
-                            <li>Figma</li>
-                            <li>VS Code</li>
-                        </ul>
+                    <li class="layer">
+                        <span class="eyebrow">Layer 02</span>
+                        <h3>Framework Ecosystem</h3>
+                        <p class="layer__text">Reactive declarative components and modern server-side hydration runtimes.</p>
+                        <ul class="chips"><li class="chip">TypeScript</li><li class="chip">React</li><li class="chip">Next.js</li><li class="chip">Vite</li></ul>
+                        <p class="layer__level">Production Proven</p>
                     </li>
-                    <li class="skill-group">
-                        <h3>Practices</h3>
-                        <ul class="chips">
-                            <li>Responsive design</li>
-                            <li>Accessibility</li>
-                            <li>Clean code</li>
-                            <li>REST API</li>
-                        </ul>
+                    <li class="layer">
+                        <span class="eyebrow">Layer 03</span>
+                        <h3>Backend &amp; Persistence</h3>
+                        <p class="layer__text">Pragmatic data layers, secure endpoints, and relational persistence.</p>
+                        <ul class="chips"><li class="chip">Supabase</li><li class="chip">PostgreSQL</li><li class="chip">REST API</li><li class="chip">Node.js</li></ul>
+                        <p class="layer__level">End-to-End Ready</p>
+                    </li>
+                    <li class="layer">
+                        <span class="eyebrow">Layer 04</span>
+                        <h3>Design &amp; Aesthetics</h3>
+                        <p class="layer__text">Museum-grade typography balance, high contrast, and accessible interfaces.</p>
+                        <ul class="chips"><li class="chip">Figma</li><li class="chip">Responsive design</li><li class="chip">Accessibility</li><li class="chip">Clean code</li></ul>
+                        <p class="layer__level">Nordic Standard</p>
                     </li>
                 </ul>
-            </section>
-            <section class="section" id="about">
-                <h2>About us</h2>
-                <p>We build websites for people and businesses who need a clear, fast and reliable online presence —
-                    from a simple landing page to a full web application. Every project starts with your goals and ends
-                    with a responsive, maintainable site that works well on any device.</p>
+                <ul class="chips stack__tools" aria-label="Tools">
+                    <li class="chip">Git</li><li class="chip">GitHub</li><li class="chip">Vercel</li><li class="chip">VS Code</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section class="section" id="services">
+            <div class="container">
+                <header class="section-head">
+                    <div>
+                        <span class="eyebrow">Services &amp; Engagement</span>
+                        <h2>Solutions engineered with Danish restraint</h2>
+                    </div>
+                    <div class="section-head__text">
+                        <p>We build websites for people and businesses who need a clear, fast and reliable online presence — from a simple landing page to a full web application. Every project starts with your goals and ends with a responsive, maintainable site that works well on any device.</p>
+                        <a class="button button--outline button--small" href="#contact"><span>Order a website</span><span class="icon icon--arrow-right" aria-hidden="true"></span></a>
+                    </div>
+                </header>
                 <ul class="services">
                     <li class="service">
+                        <span class="service__icon"><span class="icon icon--chevron-up" aria-hidden="true"></span></span>
+                        <span class="eyebrow">Engagement 01</span>
                         <h3>Landing pages &amp; business sites</h3>
-                        <p>Clean, responsive sites that explain what you do and make it easy for customers to contact
-                            you.</p>
+                        <p>Clean, responsive sites that explain what you do and make it easy for customers to contact you.</p>
+                        <p class="service__timeline">Timeline: 3–6 Weeks</p>
                     </li>
                     <li class="service">
+                        <span class="service__icon"><span class="icon icon--monitor" aria-hidden="true"></span></span>
+                        <span class="eyebrow">Engagement 02</span>
                         <h3>Web applications</h3>
                         <p>Interactive apps with React, Next.js and TypeScript, connected to databases and APIs.</p>
+                        <p class="service__timeline">Timeline: 4–10 Weeks</p>
                     </li>
                     <li class="service">
+                        <span class="service__icon"><span class="icon icon--sparkles" aria-hidden="true"></span></span>
+                        <span class="eyebrow">Engagement 03</span>
                         <h3>Redesign &amp; improvements</h3>
                         <p>Refreshing an existing site: better design, faster loading and a smoother experience.</p>
+                        <p class="service__timeline">Timeline: Sprint or Retainer</p>
                     </li>
                 </ul>
-                <div class="projects-more"><a class="button" href="#contact">Order a website</a></div>
-            </section>
-            <section class="section" id="reviews">
-                <h2>Reviews</h2>
-                <p class="section-lead">Worked with us? Share your experience — it helps others choose.</p>
+            </div>
+        </section>
+
+        <!-- REVIEWS -->
+        <section class="section section--alt" id="reviews">
+            <div class="container">
+                <header class="section-head section-head--reviews">
+                    <div>
+                        <span class="eyebrow">Client Feedback</span>
+                        <h2>Client Endorsements</h2>
+                    </div>
+                    <p class="rating-summary" id="reviews-summary"></p>
+                </header>
                 <div class="reviews-layout">
-                    <form class="review-form" id="review-form" novalidate>
+                    <ul class="reviews" id="reviews-list" aria-live="polite"></ul>
+                    <form class="card-form" id="review-form" novalidate>
                         <h3>Leave a review</h3>
-                        <label for="review-name">Your name</label>
-                        <input id="review-name" name="name" type="text" maxlength="60" autocomplete="name" required>
-                        <fieldset class="rating-input">
+                        <p class="card-form__intro">Worked with us? Share your experience — it helps others choose.</p>
+                        <div class="field">
+                            <label class="field__label" for="review-name">Your name</label>
+                            <input class="input" id="review-name" name="name" type="text" maxlength="60" autocomplete="name" placeholder="e.g. Henrik Møller, Studio KBH" required>
+                        </div>
+                        <fieldset class="rating-field">
                             <legend>Rating</legend>
-                            <div class="stars-input">
-                                <input type="radio" id="star5" name="rating" value="5"><label for="star5"
-                                    title="5 stars">★</label>
-                                <input type="radio" id="star4" name="rating" value="4"><label for="star4"
-                                    title="4 stars">★</label>
-                                <input type="radio" id="star3" name="rating" value="3"><label for="star3"
-                                    title="3 stars">★</label>
-                                <input type="radio" id="star2" name="rating" value="2"><label for="star2"
-                                    title="2 stars">★</label>
-                                <input type="radio" id="star1" name="rating" value="1"><label for="star1"
-                                    title="1 star">★</label>
+                            <div class="rating-field__row">
+                                <div class="stars-input">
+                                    <input type="radio" id="star5" name="rating" value="5" checked><label for="star5"><span class="sr-only">5</span></label>
+                                    <input type="radio" id="star4" name="rating" value="4"><label for="star4"><span class="sr-only">4</span></label>
+                                    <input type="radio" id="star3" name="rating" value="3"><label for="star3"><span class="sr-only">3</span></label>
+                                    <input type="radio" id="star2" name="rating" value="2"><label for="star2"><span class="sr-only">2</span></label>
+                                    <input type="radio" id="star1" name="rating" value="1"><label for="star1"><span class="sr-only">1</span></label>
+                                </div>
+                                <output class="rating-value" id="rating-value" for="star1 star2 star3 star4 star5">5.0</output>
                             </div>
                         </fieldset>
-                        <label for="review-text">Your review</label>
-                        <textarea id="review-text" name="text" rows="5" maxlength="600" required></textarea>
-                        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off"
-                            aria-hidden="true">
+                        <div class="field">
+                            <label class="field__label" for="review-text">Your review</label>
+                            <textarea class="input" id="review-text" name="text" rows="5" maxlength="600" placeholder="Describe delivery, communication or craft execution..." required></textarea>
+                        </div>
+                        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
                         <p class="form-error" id="review-error" role="alert" hidden></p>
                         <p class="form-ok" id="review-ok" role="status" hidden></p>
-                        <button class="button" type="submit">Submit review</button>
+                        <button class="button button--primary button--block" type="submit"><span>Submit review</span></button>
                     </form>
-                    <div class="reviews-list-wrap">
-                        <p class="reviews-summary" id="reviews-summary"></p>
-                        <ul class="reviews" id="reviews-list" aria-live="polite"></ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="section" id="contact">
+            <div class="container">
+                <div class="cta">
+                    <div>
+                        <h2>Let’s construct something meaningful.</h2>
+                        <p class="cta__text">Available for selected freelance contracts, architectural frontend engineering systems, and high-impact digital products. Based in Denmark, operating worldwide.</p>
+                        <div class="cta__facts">
+                            <a class="cta__fact" href="mailto:nikitaelcov899@gmail.com"><span class="icon icon--mail" aria-hidden="true"></span><span>nikitaelcov899@gmail.com</span></a>
+                            <a class="cta__fact" href="tel:+4555239862"><span class="icon icon--phone" aria-hidden="true"></span><span>+45 55 23 98 62</span></a>
+                            <span class="cta__fact"><span class="icon icon--pin" aria-hidden="true"></span><span>Denmark</span></span>
+                        </div>
+                    </div>
+                    <div class="cta__actions">
+                        <a class="button button--light" href="mailto:nikitaelcov899@gmail.com"><span>Start a Conversation</span><span class="icon icon--arrow-right" aria-hidden="true"></span></a>
+                        <a class="button button--ghost" href="cv/Nikita Yeltsov  CV.pdf" download="Nikita-Yeltsov-CV.pdf"><span>Download Dossier / CV</span><span class="icon icon--download" aria-hidden="true"></span></a>
+                        <p class="cta__links"><a href="https://github.com/NikitaYmedia" target="_blank" rel="noopener noreferrer">GitHub</a><span>/</span><a href="https://www.linkedin.com/in/nikita-yeltsov-8098643b7" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
                     </div>
                 </div>
-            </section>
-            <section class="section" id="contact">
-                <h2>Contacts</h2>
-                <p>Have a project or a question? Feel free to get in touch.</p>
-                <ul class="links">
-                    <li><a href="mailto:nikitaelcov899@gmail.com">nikitaelcov899@gmail.com</a></li>
-                    <li><a href="https://github.com/NikitaYmedia" target="_blank" rel="noopener noreferrer">GitHub</a>
-                    </li>
-                    <li><a href="https://www.linkedin.com/in/nikita-yeltsov-8098643b7" target="_blank"
-                            rel="noopener noreferrer">LinkedIn</a></li>
-                    <li><a href="tel:+4555239862">+45 55 23 98 62</a></li>
-                </ul>
-            </section>
-        </div>
+            </div>
+        </section>
     </main>
+
     <footer class="footer">
-        <div class="footer-inner">
-            <div class="footer-brand">
-                <strong>Nikita Yeltsov</strong>
-                <p>We build fast, responsive and reliable websites.</p>
+        <div class="container">
+            <div class="footer__grid">
+                <div>
+                    <h4 class="footer__title">Architecture &amp; Code</h4>
+                    <p class="footer__text">Disciplined digital construction. Focused on high-fidelity typography, precision interactions, and architectural systems.</p>
+                </div>
+                <div>
+                    <h4 class="footer__title">Coordinates &amp; Clocks</h4>
+                    <ul class="footer__list">
+                        <li class="footer__row"><span class="footer__row-label">Denmark</span><span class="footer__row-value" data-clock="Europe/Copenhagen"></span></li>
+                        <li class="footer__row"><span class="footer__row-label">Kyiv</span><span class="footer__row-value" data-clock="Europe/Kyiv"></span></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer__title">Network &amp; Sources</h4>
+                    <ul class="footer__list">
+                        <li><a href="https://github.com/NikitaYmedia" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                        <li><a href="https://www.linkedin.com/in/nikita-yeltsov-8098643b7" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                        <li><a href="projects.html">All Projects</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer__title">Direct Inquiry</h4>
+                    <ul class="footer__list">
+                        <li><a href="mailto:nikitaelcov899@gmail.com">nikitaelcov899@gmail.com</a></li>
+                        <li><a href="tel:+4555239862">+45 55 23 98 62</a></li>
+                    </ul>
+                </div>
             </div>
-            <nav class="footer-nav" aria-label="Footer navigation">
-                <h4>Navigation</h4>
-                <ul>
-                    <li><a href="#top">Home</a></li>
-                    <li><a href="#resume">Resume</a></li>
-                    <li><a href="#projects">Portfolio</a></li>
-                    <li><a href="projects.html">All projects</a></li>
-                    <li><a href="#about">About us</a></li>
-                    <li><a href="#reviews">Reviews</a></li>
-                    <li><a href="#contact">Contacts</a></li>
-                </ul>
-            </nav>
-            <div class="footer-contact">
-                <h4>Contact</h4>
-                <ul>
-                    <li><a href="mailto:nikitaelcov899@gmail.com">nikitaelcov899@gmail.com</a></li>
-                    <li><a href="https://github.com/NikitaYmedia" target="_blank" rel="noopener noreferrer">GitHub</a>
-                    </li>
-                    <li><a href="https://www.linkedin.com/in/nikita-yeltsov-8098643b7" target="_blank"
-                            rel="noopener noreferrer">LinkedIn</a></li>
-                    <li><a href="tel:+4555239862">+45 55 23 98 62</a></li>
-                </ul>
+            <div class="footer__bar">
+                <span><span data-copyright></span> <span>Scandinavian Structural Minimalist Edition.</span></span>
+                <span>Crafted with pure semantic rigor</span>
             </div>
         </div>
-        <p class="footer-bottom">© <span id="year"></span> Nikita Yeltsov. <span>All rights reserved.</span></p>
     </footer>
 </body>
 

@@ -33,7 +33,6 @@
                     <a class="nav__link" href="#projects"><span>Works</span></a>
                     <a class="nav__link" href="#philosophy"><span>Philosophy</span></a>
                     <a class="nav__link" href="#services"><span>Services</span></a>
-                    <a class="nav__link" href="#reviews"><span>Reviews</span></a>
                     <a class="nav__link" href="#contact"><span>Contact</span></a>
             </nav>
             <div class="header__actions">
@@ -262,51 +261,6 @@
                         <p class="service__timeline">Timeline: Sprint or Retainer</p>
                     </li>
                 </ul>
-            </div>
-        </section>
-
-        <!-- REVIEWS -->
-        <section class="section section--alt" id="reviews">
-            <div class="container">
-                <header class="section-head section-head--reviews">
-                    <div>
-                        <span class="eyebrow">Client Feedback</span>
-                        <h2>Client Endorsements</h2>
-                    </div>
-                    <p class="rating-summary" id="reviews-summary"></p>
-                </header>
-                <div class="reviews-layout">
-                    <ul class="reviews" id="reviews-list" aria-live="polite"></ul>
-                    <form class="card-form" id="review-form" novalidate>
-                        <h3>Leave a review</h3>
-                        <p class="card-form__intro">Worked with us? Share your experience — it helps others choose.</p>
-                        <div class="field">
-                            <label class="field__label" for="review-name">Your name</label>
-                            <input class="input" id="review-name" name="name" type="text" maxlength="60" autocomplete="name" placeholder="e.g. Henrik Møller, Studio KBH" required>
-                        </div>
-                        <fieldset class="rating-field">
-                            <legend>Rating</legend>
-                            <div class="rating-field__row">
-                                <div class="stars-input">
-                                    <input type="radio" id="star5" name="rating" value="5" checked><label for="star5"><span class="sr-only">5</span></label>
-                                    <input type="radio" id="star4" name="rating" value="4"><label for="star4"><span class="sr-only">4</span></label>
-                                    <input type="radio" id="star3" name="rating" value="3"><label for="star3"><span class="sr-only">3</span></label>
-                                    <input type="radio" id="star2" name="rating" value="2"><label for="star2"><span class="sr-only">2</span></label>
-                                    <input type="radio" id="star1" name="rating" value="1"><label for="star1"><span class="sr-only">1</span></label>
-                                </div>
-                                <output class="rating-value" id="rating-value" for="star1 star2 star3 star4 star5">5.0</output>
-                            </div>
-                        </fieldset>
-                        <div class="field">
-                            <label class="field__label" for="review-text">Your review</label>
-                            <textarea class="input" id="review-text" name="text" rows="5" maxlength="600" placeholder="Describe delivery, communication or craft execution..." required></textarea>
-                        </div>
-                        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-                        <p class="form-error" id="review-error" role="alert" hidden></p>
-                        <p class="form-ok" id="review-ok" role="status" hidden></p>
-                        <button class="button button--primary button--block" type="submit"><span>Submit review</span></button>
-                    </form>
-                </div>
             </div>
         </section>
 

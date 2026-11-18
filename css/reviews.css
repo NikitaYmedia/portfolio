@@ -486,3 +486,15 @@ textarea.input {
     color: var(--on-dark);
 }
 
+.testimonial__source {
+    align-self: flex-start;
+    margin-top: -14px;
+    padding: 6px 14px;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    background: #ffffff;
+    font-size: 12px;
+    font-weight: 500;
+    color: #000000;
+}
+
